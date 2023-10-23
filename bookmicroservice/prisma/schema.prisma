@@ -1,0 +1,20 @@
+//database
+datasource db {
+    url = env("DATABASE_URL")
+    provider = "postgresql"
+}
+//client connection
+generator client {
+    provider = "prisma-client-js"
+}
+//book-module
+model Book{
+    id                  String @map("id")               @db.Uuid            @default(dbgenerated("GEN_RANDOM_UUID()"))
+    book_name           String @map("book_name")        @db.VarChar(100)
+    book_price          String @map("book_price")        @db.VarChar(100)
+    book_picture        String @map("book_picture")     @db.VarChar()
+    book_description    String @map("book_description") @db.VarChar(150)
+    @@id([id])
+    @@map("book")
+    @@unique([book_name])
+}

@@ -1,0 +1,1 @@
+export type { RetrieveTranslateRequest, RetrieveTranslateResponse } from './retrieve-language.interfaces'
