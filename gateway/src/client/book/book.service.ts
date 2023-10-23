@@ -21,17 +21,21 @@ export class BookClientService implements OnModuleInit, OnModuleDestroy {
   reatrieveBook(payload: BookRetrieveAllRequest): Promise<BookRetrieveAllResponse[]> {
     return this.#_request<BookRetrieveAllRequest, BookRetrieveAllResponse[]>(Cmd.BOOK_RETRIEVE, payload)
   }
-  //create-book
-  createBook(payload: CreateBookRequest): Promise<null> {
-    return this.#_request<CreateBookRequest, null>(Cmd.BOOK_CREATE, payload)
+  //book-get-one
+  async getOneBook(id: string) {
+    return await this.#_request(Cmd.BOOK_ONE, id)
   }
   //create-book
-  deleteBook(id: string): Promise<null> {
-    return this.#_request<any, null>(Cmd.BOOK_DELETE, id)
+  async createBook(body: CreateBookRequest) {
+    return this.#_request(Cmd.BOOK_CREATE, body)
+  }
+  //create-book
+  async deleteBook(id: string): Promise<null> {
+    return this.#_request(Cmd.BOOK_DELETE, id)
   }
   //update-book
-  updateBook(payload: UpdateBookInterface): Promise<void> {
-    return this.#_request<UpdateBookInterface, null>(Cmd.BOOK_UPDATE, payload)
+  async updateBook(id: string, body: UpdateBookInterface) {
+    return this.#_request(Cmd.BOOK_UPDATE, { id, ...body })
   }
   //on-module-init
   async onModuleInit() {

@@ -15,15 +15,15 @@ export class BookController {
   }
   //get
   @Get()
-  retrieveProductAll(@Headers('authorization') accessToken: string, @Headers('accept-language') language: string): Promise<any> {
+  retrieveProductAll(@Headers('authorization') @Headers('accept-language') language: string): Promise<any> {
     return this.#_service.reatrieveBook({
       language,
     })
   }
   //post
   @Post()
-  createBook(@Body() payload: CreateBookRequest): Promise<any> {
-    return this.#_service.createBook(payload)
+  createBook(@Body() body: CreateBookRequest): Promise<any> {
+    return this.#_service.createBook(body)
   }
   //update-book
   @Patch(':id')
