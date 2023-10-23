@@ -15,6 +15,7 @@ export class BookController {
   //reatrieve-book
   @MessagePattern('cmd:book-retrieve')
   async retrieveProductAll(@Payload() payload: BookRetrieveAllDto): Promise<Book[]> {
+    console.log(payload)
     return await this.#_service.retrieveBookAll(payload)
   }
   //get-one-book

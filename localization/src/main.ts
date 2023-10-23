@@ -7,7 +7,7 @@ async function bootstrap() {
   //app-global-api-route
   app.setGlobalPrefix('api/v1/')
   //aaplication-starter
-  await app.listen(process.env.APP_PORT ?? 5000)
+  await app.listen(process.env.APP_PORT ?? 5001)
 }
 //call-bootstrap-function
 bootstrap()

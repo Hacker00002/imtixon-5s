@@ -9,8 +9,8 @@ export const bookConfig = registerAs<BookConfigOptions>(
   'book',
   (): BookConfigOptions => ({
     //book-host
-    host: process.env.BOOK_HOST ?? '127.0.0.1',
+    host: '127.0.0.1',
     //book-port
-    port: process.env.BOOK_PORT ? parseInt(process.env.PRODUCT_PORT) : 4000,
+    port: 4000,
   }),
 )

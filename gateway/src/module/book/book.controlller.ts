@@ -1,6 +1,6 @@
 import { Controller, Headers, Get, Post, Body, Delete, Param, Patch } from '@nestjs/common'
 import { BookClientService } from '../../client'
-import type { CreateBookRequest } from '../../client'
+import { CreateBookDto } from './dtos'
 
 @Controller({
   path: 'book',
@@ -15,14 +15,14 @@ export class BookController {
   }
   //get
   @Get()
-  retrieveProductAll(@Headers('authorization') @Headers('accept-language') language: string): Promise<any> {
+  retrieveProductAll(@Headers('accept-language') language: string): Promise<any> {
     return this.#_service.reatrieveBook({
       language,
     })
   }
   //post
   @Post()
-  createBook(@Body() body: CreateBookRequest): Promise<any> {
+  createBook(@Body() body: CreateBookDto): Promise<any> {
     return this.#_service.createBook(body)
   }
   //update-book

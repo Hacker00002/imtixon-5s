@@ -35,7 +35,7 @@ export class BookClientService implements OnModuleInit, OnModuleDestroy {
   }
   //update-book
   async updateBook(id: string, body: UpdateBookInterface) {
-    return this.#_request(Cmd.BOOK_UPDATE, { id, ...body })
+    await this.#_request(Cmd.BOOK_UPDATE, { id, ...body })
   }
   //on-module-init
   async onModuleInit() {
